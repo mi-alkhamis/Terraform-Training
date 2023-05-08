@@ -1,6 +1,6 @@
 
 resource "aws_instance" "server1" {
-  instance_type = "t2.micro"
+  instance_type = "t2.small"
   ami           = "ami-007855ac798b5175e"
   tags          = { "Name" = "WebServer" }
   user_data     = file("./user_data")
@@ -21,7 +21,7 @@ resource "aws_key_pair" "webserver_key" {
 }
 
 data "aws_vpc" "default-vpc" {
-  id = "vpc-09ded618bf61808d6"
+  id = "vpc-00575359b749fcae7"
 
 }
 
