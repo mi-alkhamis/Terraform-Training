@@ -48,3 +48,27 @@ resource "aws_route" "route_to_internet_gateway" {
   gateway_id             = aws_internet_gateway.internet_gateway.id
 
 }
+
+# later should change with aws_securtiy_group_egress_rule and aws_securtiy_group_ingress_rule
+
+resource "aws_security_group" "aws_security_group" {
+  name   = "${var.network_infra_tags.Name}-default-sg"
+  vpc_id = aws_vpc.vpc.id
+  egress {
+    cidr_blocks = ["0.0.0.0/0"]
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+
+  }
+
+  ingress {
+    cidr_blocks = ["0.0.0.0/0"]
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+
+  }
+
+
+}
