@@ -4,6 +4,7 @@ provider "aws" {
     tags = {
       Environment = "Test"
       Name        = "Provider Tag"
+      Managed_by  = "Terraform"
     }
   }
 }
